@@ -1,8 +1,7 @@
 {
-	"name": "project1",
+	"name": "apipoc",
 	"version": "1.0.0",
-	"description": "project1",
-	"main": "index.js",
+	"description": "apipoc 8 july",
 	"scripts": {
 		"prebuild": "rimraf dist",
 		"start": "npm run serve",
