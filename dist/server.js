@@ -42,7 +42,7 @@ let Server = class Server {
     startServer() {
         try {
             this.logger.info("🚀 Starting API server...");
-            this.port = parseInt(this.setting.config.server.port, 10);
+            this.port = parseInt(this.setting.config.server.port, 10) || 8080;
             this.app = express_1.default().use("*", cors_1.default());
             const context = context_1.getContext();
             this.initServer(context);
