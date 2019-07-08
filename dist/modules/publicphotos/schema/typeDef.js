@@ -1,0 +1,29 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.typeDef = `
+  extend type Query {
+    getAllPhotos: [Photos]
+  }
+  type Photos   {
+    title: String
+    link: String
+    description: String
+    modified: DateTimeType
+    generator: String
+    items: [Items]
+  }
+  type Items   {
+    title: String
+    media: Media
+    date_taken: DateTimeType
+    description: String
+    published: String
+    author: String
+    author_id: String
+    tags: String
+  }
+  type Media {
+    m: String
+  }
+`;
+//# sourceMappingURL=typeDef.js.map
