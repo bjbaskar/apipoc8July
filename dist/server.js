@@ -56,10 +56,10 @@ let Server = class Server {
             this.apolloServer = new apollo_server_express_1.ApolloServer({
                 schema: resolvers_1.default,
                 introspection: true,
-  			    playground: true,
+                playground: true,
                 context: ({ req }) => __awaiter(this, void 0, void 0, function* () {
                     try {
-                        const userInfo = "Baskaran";
+                        const userInfo = "Baskaran. B";
                         if (!userInfo) {
                             throw new apollo_server_express_1.AuthenticationError("You must be logged in!");
                         }

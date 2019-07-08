@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -23,14 +26,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const exceptions_1 = require("../../core/exceptions");
 const request_1 = __importDefault(require("request"));
+const AbstractSetting_1 = require("../../core/config/AbstractSetting");
+const AbstractLogger_1 = require("../../core/logger/AbstractLogger");
+const InversifyTypes_1 = require("../../core/config/InversifyTypes");
 let PhotoService = class PhotoService {
-    constructor() { }
-    getAllPhotos() {
+    constructor(logger, setting) {
+        this.logger = logger;
+        this.setting = setting;
+    }
+    getAllPhotos(inputTag) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 return new Promise((resolve, reject) => {
                     let allData = [];
-                    const url = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=bjbaskar&format=json&tags=singapore";
+                    const tagValue = inputTag ? inputTag.trim() : "";
+                    const url = this.setting.config.flickerURL + tagValue;
                     request_1.default(url, { json: true }, (err, res, data) => __awaiter(this, void 0, void 0, function* () {
                         if (err) {
                             return reject(err);
@@ -59,7 +69,10 @@ let PhotoService = class PhotoService {
 };
 PhotoService = __decorate([
     inversify_1.injectable(),
-    __metadata("design:paramtypes", [])
+    __param(0, inversify_1.inject(InversifyTypes_1.TYPES.Logger)),
+    __param(1, inversify_1.inject(InversifyTypes_1.TYPES.Setting)),
+    __metadata("design:paramtypes", [AbstractLogger_1.AbstractLogger,
+        AbstractSetting_1.AbstractSetting])
 ], PhotoService);
 exports.PhotoService = PhotoService;
 //# sourceMappingURL=PhotoService.js.map

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.typeDef = `
   extend type Query {
-    getAllPhotos: [Photos]
+    getAllPhotos(inputTag: String): [Photos]
   }
   type Photos   {
     title: String

@@ -25,6 +25,7 @@ let Setting = class Setting extends AbstractSetting_1.AbstractSetting {
         super();
         dotenv.config();
         this.settings = {
+            flickerURL: "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=bjbaskar&format=json&tags=",
             log: {
                 filedir: path.join(__dirname, "../../../log"),
                 filename: "project1-%DATE%.log"

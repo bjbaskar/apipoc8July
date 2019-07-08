@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolvers = {
     Query: {
         getAllPhotos: (_, args, context) => __awaiter(this, void 0, void 0, function* () {
-            const res = yield context.PhotoService.getAllPhotos();
+            const res = yield context.PhotoService.getAllPhotos(args.inputTag);
             console.log(res);
             return res;
         })
