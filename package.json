@@ -9,7 +9,7 @@
   "author": "Baskaran Balaganesan",
   "license": "MIT",
   "engines": {
-    "node": "10.x"
+    "node": "10.3.0"
   },
   "scripts": {
     "start": "npm run serve",
