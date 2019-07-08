@@ -55,6 +55,8 @@ let Server = class Server {
         return __awaiter(this, void 0, void 0, function* () {
             this.apolloServer = new apollo_server_express_1.ApolloServer({
                 schema: resolvers_1.default,
+                introspection: true,
+  			    playground: true,
                 context: ({ req }) => __awaiter(this, void 0, void 0, function* () {
                     try {
                         const userInfo = "Baskaran";
